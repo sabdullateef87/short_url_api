@@ -6,7 +6,6 @@ const URL = process.env.PROD_URL || process.env.DEV_URL;
 const createUrl = async (req, res) => {
   //   res.send("hello from create url");
   const url = req.body.url;
-  res.send(url);
   const isValid = validUrl.isUri(url);
   if (!isValid) {
     return res.status(400).json({
