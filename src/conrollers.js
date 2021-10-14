@@ -22,14 +22,13 @@ const createUrl = async (req, res) => {
   }
   const shortCode = shortId.generate();
   const shortUrl = URL + "/" + shortCode;
-  res.send(shortUrl);
-  //   const newUrl = new UrlModel({
-  //     long_url: url,
-  //     short_url: shortUrl,
-  //     url_code: shortCode,
-  //   });
-  //   await newUrl.save();
-  //   return res.json({ short_url: shortUrl });
+  const newUrl = new UrlModel({
+    long_url: url,
+    short_url: shortUrl,
+    url_code: shortCode,
+  });
+  await newUrl.save();
+  return res.json({ short_url: shortUrl });
 };
 const redirect = async (req, res) => {
   const code = req.params.code;
