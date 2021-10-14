@@ -12,14 +12,14 @@ const createUrl = async (req, res) => {
       message: "Invalid Url",
     });
   }
-  //   const isExist = await UrlModel.findOne({ long_url: url });
-  //   //   console.log(isExist);
-  //   if (isExist) {
-  //     return res.status(200).json({
-  //       message: "Available",
-  //       short_url: isExist.short_url,
-  //     });
-  //   }
+  const isExist = await UrlModel.findOne({ long_url: url });
+  console.log(isExist);
+  if (isExist) {
+    return res.status(200).json({
+      message: "Available",
+      short_url: isExist.short_url,
+    });
+  }
   //   const shortCode = shortId.generate();
   //   const shortUrl = URL + "/" + shortCode;
   //   console.log(shortUrl);
