@@ -5,7 +5,7 @@ const URL = process.env.PROD_URL;
 
 const createUrl = async (req, res) => {
   const url = req.body.url;
-  console.log(url);
+  res.send(url);
   //   const isValid = validUrl.isUri(url);
   //   if (!isValid) {
   //     throw new Error("Invalid Url");
