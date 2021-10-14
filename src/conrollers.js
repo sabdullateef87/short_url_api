@@ -7,10 +7,12 @@ const createUrl = async (req, res) => {
   //   res.send("hello from create url");
   const url = req.body.url;
   res.send(url);
-  //   const isValid = validUrl.isUri(url);
-  //   if (!isValid) {
-  //     throw new Error("Invalid Url");
-  //   }
+  const isValid = validUrl.isUri(url);
+  if (!isValid) {
+    return res.status(400).json({
+      message: "Invalid Url",
+    });
+  }
   //   const isExist = await UrlModel.findOne({ long_url: url });
   //   //   console.log(isExist);
   //   if (isExist) {
