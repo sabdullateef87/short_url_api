@@ -1,12 +1,12 @@
 const UrlModel = require("./model");
 const shortId = require("shortid");
 const validUrl = require("valid-url");
-const URL = process.env.PROD_URL;
+const URL = process.env.PROD_URL || process.env.DEV_URL;
 
 const createUrl = async (req, res) => {
-  res.send("hello from create url");
-  //   const url = req.body.url;
-  //   res.send(url);
+  //   res.send("hello from create url");
+  const url = req.body.url;
+  res.send(url);
   //   const isValid = validUrl.isUri(url);
   //   if (!isValid) {
   //     throw new Error("Invalid Url");
