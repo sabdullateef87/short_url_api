@@ -20,9 +20,9 @@ const createUrl = async (req, res) => {
       short_url: isExist.short_url,
     });
   }
-  //   const shortCode = shortId.generate();
-  //   const shortUrl = URL + "/" + shortCode;
-  //   console.log(shortUrl);
+  const shortCode = shortId.generate();
+  const shortUrl = URL + "/" + shortCode;
+  res.send(shortUrl);
   //   const newUrl = new UrlModel({
   //     long_url: url,
   //     short_url: shortUrl,
